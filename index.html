@@ -1,0 +1,234 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Editor Portfolio</title>
+<style>
+  :root{
+    --bg-dark:#0b0c0e;
+    --bg-panel:#151619;
+    --accent:#e63946;
+    --text-primary:#f2f0eb;
+    --text-secondary:#9a9fa6;
+    --line:#2a2c30;
+
+    /* 👇 YAHAN APNI BACKGROUND IMAGE KA URL DAALO */
+    --hero-bg: url(https://i.imgur.com/1ZAuPtP.jpeg);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg-dark);
+    color:var(--text-primary);
+    font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 6vw;
+    mix-blend-mode:difference;
+  }
+  .brand{font-size:18px;font-weight:700;letter-spacing:0.5px;}
+  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--text-primary);}
+  .nav-links a{color:inherit;text-decoration:none;opacity:0.85;}
+  .nav-links a:hover{opacity:1;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    height:100vh;min-height:560px;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:0 6vw 70px;
+    background-image:linear-gradient(180deg, rgba(11,12,14,0.15) 0%, rgba(11,12,14,0.55) 60%, rgba(11,12,14,0.95) 100%), var(--hero-bg);
+    background-size:cover;
+    background-position:center;
+  }
+  .rec-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--accent);font-size:13px;font-weight:600;
+    margin-bottom:18px;
+  }
+  .rec-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);
+    animation:pulse 1.6s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.25;}}
+
+  .hero h1{
+    font-size:clamp(40px,8vw,96px);
+    font-weight:800;
+    letter-spacing:-2px;
+    line-height:0.95;
+    max-width:14ch;
+  }
+  .hero p{
+    margin-top:18px;max-width:480px;
+    color:var(--text-secondary);font-size:16px;
+  }
+  .scroll-hint{
+    position:absolute;bottom:26px;right:6vw;
+    font-size:12px;color:var(--text-secondary);
+    writing-mode:vertical-rl;letter-spacing:2px;
+  }
+
+  section{padding:100px 6vw;}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    margin-bottom:44px;border-bottom:1px solid var(--line);padding-bottom:18px;
+  }
+  .section-head h2{font-size:clamp(26px,4vw,42px);font-weight:700;letter-spacing:-1px;}
+  .section-head span{color:var(--text-secondary);font-size:14px;}
+
+  /* ---------- WORK GRID ---------- */
+  .work-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:26px;
+  }
+  .work-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    overflow:hidden;
+  }
+  .work-card .frame{
+    position:relative;width:100%;aspect-ratio:16/9;background:#000;
+  }
+  .work-card iframe{width:100%;height:100%;border:0;display:block;}
+  .work-card .caption{padding:16px 18px;}
+  .work-card .caption h3{font-size:16px;font-weight:600;}
+  .work-card .caption p{color:var(--text-secondary);font-size:13px;margin-top:4px;}
+
+  /* ---------- ABOUT ---------- */
+  .about{
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;
+  }
+  .about p{color:var(--text-secondary);font-size:16px;max-width:52ch;}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+  .stat b{font-size:34px;font-weight:800;display:block;}
+  .stat span{color:var(--text-secondary);font-size:13px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:var(--bg-panel);
+    border-top:1px solid var(--line);
+    padding:90px 6vw;
+    text-align:left;
+  }
+  .contact h2{font-size:clamp(30px,6vw,58px);font-weight:800;letter-spacing:-1.5px;max-width:16ch;}
+  .contact-links{
+    margin-top:36px;display:flex;flex-wrap:wrap;gap:16px;
+  }
+  .contact-links a{
+    display:inline-flex;align-items:center;gap:10px;
+    color:var(--text-primary);text-decoration:none;
+    border:1px solid var(--line);padding:14px 22px;
+    font-size:15px;transition:border-color .2s, background .2s;
+  }
+  .contact-links a:hover{border-color:var(--accent);background:rgba(230,57,70,0.08);}
+
+  footer{
+    padding:26px 6vw;color:var(--text-secondary);font-size:12px;
+    display:flex;justify-content:space-between;
+  }
+
+  @media(max-width:700px){
+    .about{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    section{padding:70px 6vw;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">KRISHNARYAA</div>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="rec-tag"><span class="rec-dot"></span>Available for projects</div>
+  <h1>Video editing that holds attention.</h1>
+  <p>Reels, brand films, and long-form edits, cut with rhythm. Here is my recent works.</p>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<section id="work">
+  <div class="section-head">
+    <h2>Projects</h2>
+    <span>3 project</span>
+  </div>
+  <div class="work-grid">
+
+    <div class="work-card">
+      <div class="frame">
+        <iframe src="https://www.youtube.com/embed/_3yDKGO442s" allowfullscreen></iframe>
+      </div>
+      <div class="caption">
+        <h3>Shiv Shakti By Lucke</h3>
+        <p>Music Video</p>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="frame">
+        <iframe src="https://www.youtube.com/embed/6RutU6ryLis" allowfullscreen></iframe>
+      </div>
+      <div class="caption">
+        <h3>Shiv Garjana By Jagirdar RV</h3>
+        <p>Music Video</p>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="frame">
+        <iframe src="https://www.youtube.com/embed/9v46V5pHB7s" allowfullscreen></iframe>
+      </div>
+      <div class="caption">
+        <h3>Bam Bam Bhole By Shlovij</h3>
+        <p>Music Video</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <div>
+      <div class="section-head" style="border:none;padding:0;margin-bottom:20px;">
+        <h2>About</h2>
+      </div>
+      <p>I have been working in video editing for the past 4 years. During this time, I have created and edited numerous YouTube videos and Instagram Reels. I have developed strong experience in creating engaging, visually appealing, and professional video content,
+      
+I am sharing some of my YouTube video projects here as examples of my editing work..</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>50+</b><span>Projects delivered</span></div>
+      <div class="stat"><b>4+</b><span>Years experience</span></div>
+      <div class="stat"><b>20+</b><span>Happy clients</span></div>
+      <div class="stat"><b>24h</b><span>Avg. turnaround</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="contact" id="contact">
+  <h2>Let's cut something great together.</h2>
+  <div class="contact-links">
+    <a href="https://instagram.com/yourhandle" target="_blank">Instagram: @krishnaryaa</a>
+    <a href="tel:+910000000000">Whatsapp: +918302063003</a>
+  </div>
+</div>
+
+<footer>
+  <span> Ajay Vk © 2026</span>
+  <span>Made with care</span>
+</footer>
+
+</body>
+</html>
